@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+            Login Page
+        </title>
+        <script>
+            function welcomeMessage()
+            {
+                var name = document.getElementById("t1").value
+                if(name=="")
+                document.getElementById("para1").innerText="Please enter your name..."
+                else
+                document.getElementById("para1").innerHTML="<b>Welcome "+name+"</b>"
+            }
+            function clearMessage()
+            {
+                document.getElementById("para1").innerHTML=""
+                document.getElementById("t1").value=""
+            }
+        </script>
+    </head>
+    <body>
+       Enter your name: <input type="text" id="t1">
+       <button onclick="welcomeMessage()">Welcome</button>
+       <button onclick="clearMessage()">Clear</button>
+       <p id="para1">
+
+       </p>
+
+    </body>
+</html>

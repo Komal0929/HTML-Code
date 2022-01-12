@@ -1,0 +1,121 @@
+<html>
+    <head>
+    <title>Currency Convertor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ex.css">     
+    <script>
+
+        function calAmount()
+        {
+          
+
+           var num=document.getElementById("amount").value
+           var amt=parseInt(num)
+
+           var x=document.getElementById("from").value
+           var y=document.getElementById("to").value
+           var result=0
+           if(x=="dollar")
+           {
+               if(y=="rupee")
+               {
+                   result=amt*76;
+                   document.getElementById("result").value=result
+               }
+               else if(y=="dollar")
+               {
+                   result=amt;
+                   document.getElementById("result").value=result
+               }
+               else
+               {
+                    result=amt*0.88;
+                    document.getElementById("result").value=result
+               }
+           }
+           if(x=="rupee")
+           {
+               if(y=="rupee")
+               {
+                   result=amt;
+                   document.getElementById("result").value=result
+               }
+               else if(y=="dollar")
+               {
+                   result=amt/76;
+                   document.getElementById("result").value=result
+               }
+               else
+               {
+                    result=amt/0.012;
+                    document.getElementById("result").value=result
+               }
+           }
+
+           if(x=="euro")
+           {
+               if(y=="euro")
+               {
+                   result=amt;
+                   document.getElementById("result").value=result
+               }
+               else if(y=="dollar")
+               {
+                   result=amt/0.88;
+                   document.getElementById("result").value=result
+               }
+               else
+               {
+                    result=amt/0.012;
+                    document.getElementById("result").value=result
+               }
+           }
+
+
+
+
+          
+        }
+        
+    </script>   
+    </head>
+</html>
+
+<body>
+    <center>
+    <form>
+    
+    <div class="alpha">
+        <h1><b>Currency Convertor</b></h1>
+        <br><br>
+        Amount:<input id="amount" type="text" name="amount">
+      
+        From: 
+         <select name="From" id="from">
+         <option value="0">select</option> 
+         <option value="dollar">Dollar</option>
+         <option value="euro">Euro</option>
+         <option value="rupee">Rupee</option>
+         </select>
+         
+        <br><br>
+
+        Result:<input id="result" type="text" name="amount">
+        To:
+            <select name="To" id="to">
+            <option value="0">select</option> 
+            <option value="rupee">Rupee</option>
+            <option value="dollar">Dollar</option>
+            <option value="euro">Euro</option>
+            </select>
+        
+        <br><br>
+        <center><input type="button" onclick="calAmount()" class="btn btn-primary" value="Convert">
+                <input type="reset" class="btn btn-primary" value="Reset"></center>
+          
+    
+
+    </div>
+</form>
+</center>
+</body>

@@ -1,0 +1,154 @@
+<html>
+    <head>
+<style>
+    label{
+        font:bold;
+        font-size:large;
+        color: rgb(77, 6, 245);
+        font-family: 'Times New Roman', Times, serif;
+    }
+    #some{
+        width: 50%;
+
+    }
+    div{
+        margin-top: 10%;
+        font-family: 'Times New Roman', Times, serif;
+        background-image:url('money.jpeg') ;
+        /*background-color: lightpink;*/
+        width: 50%;
+        border-style: groove;
+        border-radius: 10px;
+        box-shadow: black;
+        border-color: black;
+        font: bold;
+       
+    }
+    select{
+        border: crimson;
+    }
+</style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script>
+            function convert()
+            {
+                var num=document.getElementById("amount").value;
+                var amt=parseInt(num);
+                
+                var fromcur=document.getElementById("Fromcurrency").value;
+                var tocur=document.getElementById("Tocurrency").value;
+                var result=0;
+                // from rupeee to something
+                if(fromcur=="rupee")
+                {
+                     if(tocur=="dollar")
+                     {
+                           result=amt/75;
+                     }
+                     else if(tocur=="yen")
+                     {
+                           result=amt*1.5;
+                     }
+                     else
+                     {
+                         result=amt;
+                     }
+                     
+                }// end of rupee if
+                else if(fromcur=="dollar")
+                {
+                     if(tocur=="rupee")
+                     {
+                        result=amt*75;
+                     }
+                     else if(tocur=="yen")
+                     {
+                           result=amt*(113.72);
+                     }
+                     else
+                     {
+                         result=amt;
+                     }
+                     
+                }//end of dollar if
+                else if(fromcur=="yen")
+                {
+                     if(tocur=="dollar")
+                     {
+                       result=amt/113.72;
+                     }
+                     else if(tocur=="rupee")
+                     {
+                          result=amt/1.5;
+                     }
+                     else
+                     {
+                         result=amt;
+                     }
+                     
+                }
+                else{
+                    if(fromcur=="s1" && tocur=="s2")
+                   {
+                     alert("Please Select Something from Both Menu!!");
+                   } 
+                   else if(fromcur=="s1")
+                   {
+                     alert("Please Select Something from:- From Currency Menu!!");
+                   }
+                   else if(tocur=="s2"){
+                    alert("Please Select Something from:-To Currency Menu!!");
+                   }
+                }
+                //answer
+                if(result!=0)
+                {
+                   document.getElementById("res").value=result;
+                }
+              //  document.getElementById("out").innerText=result;
+
+            }// convert function end
+            function clearall()
+            {
+                document.getElementById("amount").value="";
+                document.getElementById("res").value="";
+            }
+        </script>
+    </head>
+    <body >
+        <center>
+        <div>
+            <form >
+          <br> 
+           <label for="inamt" >Enter the Amount :</label> <input type="text" name="inamt" id="amount" class="form-control" style="width: 50%;border-color: black;">
+           <br>
+           <br>
+           <label for="Fcurrency">From Currency :</label>
+            <select name="Fcurrency" id="Fromcurrency" class="btn dropdown-toggle">
+             <option value="s1">Select</option>  
+             <option value="rupee">Rupee &#8377;</option>
+             <option value="dollar">Dollar $</option>
+             <option value="yen"> Yen &#65509;</option>
+             <!-- <option value="pound">Pound &#65505;</option> -->
+            </select>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <label for="Tcurrency">To Currency :</label>
+            <select name="Tcurrency" id="Tocurrency" class="btn dropdown-toggle">
+            <option value="s2">Select</option>    
+             <option value="rupee">Rupee &#8377;</option>
+             <option value="dollar">Dollar $</option>
+             <option value="yen"> Yen &#65509;</option>
+             <!-- <option value="pound">Pound &#65505;</option> -->
+            </select>
+            <br>
+            <br>
+            <label for="Result">Result:</label>
+            <input type="text" name="Result" id="res"  class="form-control" style="width: 50%; border-color: black;">
+            <br>
+           &nbsp;  <input class="btn btn-primary" onclick="convert()" type="button" value="Convert" >  
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+           <input class="btn btn-primary" onclick="clearall()" type="button" value="Clear">  
+        </div>
+    </center>
+    </body>
+</html>

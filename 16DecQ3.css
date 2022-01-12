@@ -1,0 +1,33 @@
+.alpha
+{
+    font-style:italic;
+    background-color: turquoise;
+    border: darkblue;
+    text-align: center;
+    margin-top: 10px;
+    width:200px;
+    height:30px;
+
+}
+.beta
+{
+    font-style:bold;
+    background-color: cadetblue;
+    border: darkmagenta;
+    text-align: left;
+    margin-left:500px;
+    width:200px;
+    height:30px;
+    font-weight:bold;
+}
+.gamma
+{
+    font-style:underline;
+    background-color: cornflowerblue;
+    border:darkgreen;
+    text-align: right;
+    margin-left:1000px;
+    width:200px;
+    height:30px;
+    text-decoration: underline;
+}
